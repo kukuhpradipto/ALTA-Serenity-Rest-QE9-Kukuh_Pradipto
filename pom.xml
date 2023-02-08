@@ -8,7 +8,6 @@
     <packaging>jar</packaging>
 
     <name>Sample Serenity BDD project using Cucumber</name>
-
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <serenity.version>2.4.51</serenity.version>
@@ -178,5 +177,4 @@
             </plugin>
         </plugins>
     </build>
-
 </project>
