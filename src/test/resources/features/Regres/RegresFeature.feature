@@ -17,13 +17,6 @@ Feature: Regres API Automation testing
       Then Status code should be 201 Created
       And Response body name should be "Kukuh" and job is "Leader of QA"
 
-      @Tugas
-      Scenario: Get single user with id parameter
-        Given Get single user with valid parameter id 1
-        When Send request get single user
-        Then Status code should be 200 OK
-
-
       @Latihan
       Scenario Outline: Put update user with valid json and parameter id
         Given Update user with valid json and parameter id <id>
@@ -45,3 +38,9 @@ Feature: Regres API Automation testing
             | id |
             | 2  |
             | 3  |
+
+      @Tugas
+      Scenario: Get single user with id parameter
+        Given Get single user with valid parameter id 1
+        When Send request get single user
+        Then Status code should be 200 OK
