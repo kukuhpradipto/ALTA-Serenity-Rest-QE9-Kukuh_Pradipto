@@ -3,38 +3,85 @@ package starter.Regres;
 import io.restassured.http.ContentType;
 import net.serenitybdd.rest.SerenityRest;
 import net.thucydides.core.annotations.Step;
+import net.thucydides.core.annotations.Steps;
+import starter.Utils.Constant;
 
 import java.io.File;
 
 public class RegresAPI {
 
-    public static final String DIR = System.getProperty("user.dir"); // untuk mengambil user directory
-    public static String BASE_URL = "https://reqres.in";
-
-    public static String GET_LIST_USERS = BASE_URL + "/api/users?page={page}";
-    public static String GET_SINGLE_USER = BASE_URL + "/api/users/{id}";
-    public static String POST_CREATE_USER = BASE_URL + "/api/users";
-    public static String PUT_UPDATE_USER = BASE_URL + "/api/users/{id}";
-    public static String DELETE_USER = BASE_URL+"/api/users/{id}";
-
+    //GET LIST USER
+    public static String GET_LIST_USERS = Constant.BASE_URL + "/users?page={page}";
     @Step("Get list users")
     public void getListUsers(int page){
         SerenityRest.given().pathParam("page",page);
     }
 
-    @Step("Post create new user")
-    public void postCreateUser(File json){
-        SerenityRest.given()
-                .contentType(ContentType.JSON)
-                .body(json);
-    }
 
+    //GET SINGLE USER
+    public static String GET_SINGLE_USER = Constant.BASE_URL + "/users/{id}";
     @Step("Get single user")
     public void getSingleUser(int id){
         SerenityRest.given().pathParam("id", id);
     }
+    @Step("Get single user with invalid id")
+    public void setGetSingletUsersInvalidId(String id){
+        SerenityRest.given().pathParam("id", id);
+    }
 
-    @Step
+
+    public static String GET_SINGLE_USER_WITHOUT_PARAMETER = Constant.BASE_URL + "/users";
+    @Step("Get single user without parameter")
+    public void getSingleUserWithoutParameter(){
+        SerenityRest.given();
+    }
+
+
+    //GET RECOURSE
+    public static String GET_RECOURCE = Constant.BASE_URL + "/unknown";
+    public void getRecource(){
+        SerenityRest.given();
+    }
+
+
+    //POST CREATE
+    public static String POST_CREATE_USER = Constant.BASE_URL + "/users";
+    @Step("Post create new user")
+    public void postCreateUser(File json){
+        SerenityRest.given().contentType(ContentType.JSON).body(json);
+    }
+
+
+    //POST REGSITER
+    public static String POST_REGISTER = Constant.BASE_URL + "/register";
+    @Step("Post register successful")
+    public void postRegister(File json){
+        SerenityRest.given().contentType(ContentType.JSON).body(json);
+    }
+
+    public static String POST_REGISTER_INVALID = Constant.BASE_URL + "/register";
+    @Step("Post register invalid")
+    public void postRegisterInvalid(File json){
+        SerenityRest.given().contentType(ContentType.JSON).body(json);
+    }
+
+    //POST LOGIN
+    public static String POST_LOGIN = Constant.BASE_URL + "/login";
+    @Step("Post login")
+    public void postLogin ( File json){
+        SerenityRest.given().contentType(ContentType.JSON).body(json);
+    }
+
+    public static String POST_LOGIN_INVALID = Constant.BASE_URL + "/login";
+    @Step("Logon with invalid json")
+    public void postLoginInvalid (File json){
+        SerenityRest.given().contentType(ContentType.JSON).body(json);
+    }
+
+
+    //PUT UPDATE
+    public static String PUT_UPDATE_USER = Constant.BASE_URL + "/users/{id}";
+    @Step("PUT user")
     public void putUpdateUser(int id, File json ){
         SerenityRest.given()
                 .pathParam("id",id)
@@ -42,6 +89,9 @@ public class RegresAPI {
                 .body(json);
     }
 
+
+    //DELETE
+    public static String DELETE_USER = Constant.BASE_URL+"/users/{id}";
     @Step("Delete user")
     public void deleteUser (int id){
         SerenityRest.given().pathParam("id", id);
