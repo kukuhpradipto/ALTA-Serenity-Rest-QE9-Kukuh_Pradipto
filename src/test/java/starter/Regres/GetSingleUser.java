@@ -57,7 +57,6 @@ public class GetSingleUser {
     @Then("Status code should be {int} Not Found")
     public void statusCodeShouldBeNotFound(int notFound) {
         SerenityRest.then().statusCode(notFound);
-
     }
 
     @And("Response id should be {int}")
@@ -69,7 +68,6 @@ public class GetSingleUser {
     public void validateGetSingleUserJsonSchema() {
         File jsonSchema = new File(Constant.JSON_SCHEMA + "/SingleUserJSONSchema.json");
         SerenityRest.then().assertThat().body(JsonSchemaValidator.matchesJsonSchema(jsonSchema));
-
     }
 
     @And("Validate get single without parameter json schema")
@@ -94,7 +92,6 @@ public class GetSingleUser {
     SerenityRest.then()
                 .assertThat()
                 .body(JsonSchemaValidator.matchesJsonSchema(jsonSchema));
-
     }
 }
 

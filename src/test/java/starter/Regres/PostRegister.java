@@ -88,6 +88,12 @@ public class PostRegister {
     public void sendRequestPostRegisterWithoutParameter() {
         SerenityRest.when().post(RegresAPI.POST_REGISTER_INVALID);
     }
+
+    @And("Validasi create new user json schema")
+    public void validasiCreateNewUserJsonSchema() {
+        File jsonSchema = new File(Constant.JSON_SCHEMA +"/CreateNewUser.json");
+        SerenityRest.then().assertThat().body(JsonSchemaValidator.matchesJsonSchema(jsonSchema));
+    }
 }
 
 

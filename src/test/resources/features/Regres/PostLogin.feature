@@ -23,3 +23,11 @@ Feature: Regres API Automation testing POST LOGIN
     Then Status code should be 400 Bad Request
     And Response body should show message "Missing password"
     And Validate post register invalid json schema
+
+  @Tugas @Negative-Case
+  Scenario: Post login with invalid json file
+    Given Post login without email and password
+    When Send request invalid json
+    Then Status code should be 400 Bad Request
+    And Response body should show message "Missing email or username"
+    And Validate post register invalid json schema

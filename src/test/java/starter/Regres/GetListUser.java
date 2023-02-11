@@ -49,4 +49,31 @@ public class GetListUser {
         SerenityRest.then().body(RegresResponses.PAGE,equalTo(page));
     }
 
+    @Given("Get list users without parameter page")
+    public void getListUsersWithoutParameterPage() {
+        regresAPI.getRecource();
+    }
+
+    @When("Send request get list with out parameter page")
+    public void sendRequestGetListWithOutParameterPage() {
+        SerenityRest.when().get(RegresAPI.GET_RECOURCE);
+    }
+
+    @And("Validate get list without  json schema")
+    public void validateGetListJsonSchema() {
+        File jsonSchema = new File(Constant.JSON_SCHEMA + "/ListRecourceJSONSchema.json");
+        SerenityRest.then()
+                .assertThat()
+                .body(JsonSchemaValidator.matchesJsonSchema(jsonSchema));
+    }
+
+    @Given("Get list users with invalid parameter page {string}")
+    public void getListUserUsersWithInvalidParameterPage(String page) {
+        regresAPI.getListUsersInvalidPage(page);
+    }
+
+    @When("Send request with invalid parameter page")
+    public void sendRequestWithInvalidParameterPage() {
+        SerenityRest.when().get(RegresAPI.GET_LIST_USERS_INVALIDPAGE);
+    }
 }

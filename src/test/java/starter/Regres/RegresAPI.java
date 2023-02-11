@@ -1,5 +1,6 @@
 package starter.Regres;
 
+import com.sun.corba.se.pept.transport.ContactInfo;
 import io.restassured.http.ContentType;
 import net.serenitybdd.rest.SerenityRest;
 import net.thucydides.core.annotations.Step;
@@ -15,6 +16,12 @@ public class RegresAPI {
     @Step("Get list users")
     public void getListUsers(int page){
         SerenityRest.given().pathParam("page",page);
+    }
+
+    public static String GET_LIST_USERS_INVALIDPAGE = Constant.BASE_URL + "/users?page={page}";
+    @Step("Get list users with invalid page")
+    public void getListUsersInvalidPage (String page){
+        SerenityRest.given().pathParam("page", page);
     }
 
 
@@ -81,12 +88,24 @@ public class RegresAPI {
 
     //PUT UPDATE
     public static String PUT_UPDATE_USER = Constant.BASE_URL + "/users/{id}";
-    @Step("PUT user")
+    @Step("PuT update user")
     public void putUpdateUser(int id, File json ){
         SerenityRest.given()
                 .pathParam("id",id)
                 .contentType(ContentType.JSON)
                 .body(json);
+    }
+
+    public static String PUT_UPDATE_INVALIDID = Constant.BASE_URL + "/users/{id}";
+    @Step("Put update user invalid id")
+    public void putUpdateInvalidid(String id, File json){
+        SerenityRest.given().pathParam("id", id).contentType(ContentType.JSON).body(json);
+    }
+
+    public static String PUT_WITHOUT_PARAMETER = Constant.BASE_URL + "/users";
+    @Step("Put without parameter")
+    public void setPutWithoutParameter (){
+        SerenityRest.given();
     }
 
 
@@ -95,6 +114,18 @@ public class RegresAPI {
     @Step("Delete user")
     public void deleteUser (int id){
         SerenityRest.given().pathParam("id", id);
+    }
+
+    public static String DELETE_USER_INVALIDID = Constant.BASE_URL + "/users/{id}";
+    @Step("Delete user with invalid id")
+    public void deleteUserInvalid (String id){
+        SerenityRest.given().pathParam("id", id);
+    }
+
+    public static String DELETE_WITHOUTID = Constant.BASE_URL + "/users";
+    @Step("Delete user without parameter")
+    public void deleteUserWithoutId (){
+        SerenityRest.given();
     }
 
 }

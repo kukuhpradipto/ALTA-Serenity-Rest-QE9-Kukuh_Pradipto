@@ -20,16 +20,12 @@ public class PostCrateNewUser {
     // POST VALID USER
     @Given("Create new user with valid json")
     public void createNewUserWithValidJson() {
-        File jsonReq = new File(Constant.JSON_REQ_BODY + "PostCreateValid.json");
+        File jsonReq = new File(Constant.JSON_REQ_BODY+"/PostCreateValid.json");
         regresAPI.postCreateUser(jsonReq);
     }
 
     @When("Send request post create user")
     public void sendRequestPostCreateUser() {
-        SerenityRest.when().post(RegresAPI.POST_CREATE_USER);
-    }
-    @When("Send request post create user valid json")
-    public void sendRequestPostCreateUserValidJson() {
         SerenityRest.when().post(RegresAPI.POST_CREATE_USER);
     }
 

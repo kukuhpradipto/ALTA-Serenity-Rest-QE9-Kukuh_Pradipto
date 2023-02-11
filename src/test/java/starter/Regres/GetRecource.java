@@ -15,7 +15,7 @@ public class GetRecource {
     RegresAPI regresAPI;
 
 
-    @Given("Get list users with valid parameter unknown")
+    @Given("Get list users with parameter unknown")
     public void getListUsersWithValidParameterPage() {
         regresAPI.getRecource();
     }
@@ -27,6 +27,14 @@ public class GetRecource {
 
     @And("Validate get list resource json schema")
     public void validateGetListRecourceJsonSchema() {
+        File jsonSchema = new File(Constant.JSON_SCHEMA + "/ListRecourceJSONSchema.json");
+        SerenityRest.then()
+                .assertThat()
+                .body(JsonSchemaValidator.matchesJsonSchema(jsonSchema));
+    }
+
+    @And("Validate get list with out parameter json schema")
+    public void validateGetListWithoutParameterJsonSchema() {
         File jsonSchema = new File(Constant.JSON_SCHEMA + "/ListRecourceJSONSchema.json");
         SerenityRest.then()
                 .assertThat()

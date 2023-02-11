@@ -3,9 +3,10 @@ Feature: Regres API Automation testing POST
   @Latihan @Positive-Case
   Scenario: Post create new user with valid json file
     Given Create new user with valid json
-    When Send request post create user valid json
+    When Send request post create user
     Then Status code should be 201 Created
-    And Response body name should be "saya" and job is "job"
+    And Response body name should be "morpheus" and job is "leader"
+    And Validasi create new user json schema
 
   @Tugas @Negative-Case
   Scenario: Post create new user with invalid json file

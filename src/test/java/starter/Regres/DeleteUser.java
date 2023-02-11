@@ -25,8 +25,23 @@ public class DeleteUser {
         SerenityRest.then().statusCode(noContent);
     }
 
-    @Given("Delete user with invalid id <id>")
-    public void deleteUserWithInvalidIdId() {
+    @Given("Delete user with invalid id {string}")
+    public void deleteUserWithInvalidIdId(String id) {
+        regresAPI.deleteUserInvalid(id);
+    }
 
+    @When("Send request delete user invalid id")
+    public void sendRequestDeleteUserInvalidId() {
+        SerenityRest.when().delete(RegresAPI.DELETE_USER_INVALIDID);
+    }
+
+    @Given("Delete user without ID")
+    public void deleteUserWithoutID() {
+        regresAPI.deleteUserWithoutId();
+    }
+
+    @When("Send request delete user without id")
+    public void sendRequestDeleteUserWithoutId() {
+        SerenityRest.when().delete(RegresAPI.DELETE_WITHOUTID);
     }
 }

@@ -54,4 +54,10 @@ public class PostLogin {
         File jsonLoginInvalid = new File(Constant.JSON_REQ_BODY + "/PostLoginWithoutPassword.json");
         regresAPI.postLoginInvalid(jsonLoginInvalid);
     }
+
+    @Given("Post login without email and password")
+    public void postLoginWithoutEmailAndPassword() {
+        File jsonLoginInvalid = new File(Constant.JSON_REQ_BODY + "/PostLoginWithoutEmailPassword.json");
+        regresAPI.postLoginInvalid(jsonLoginInvalid);
+    }
 }
