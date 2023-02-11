@@ -1,9 +1,33 @@
-# Getting started with REST API testing with Serenity and Cucumber 6
+## Automation Testing Rest Assured reqres.in
+### Selenium Framework with Cucumber
 
-This is a simple starter project for Serenity with Cucumber 6 and RestAssured
+The framework has following features
 
-## Want to learn more?
-For more information about Serenity BDD, you can read the [**Serenity BDD Book**](https://serenity-bdd.github.io/theserenitybook/latest/index.html), the official online Serenity documentation source. Other sources include:
-* **[Byte-sized Serenity BDD](https://www.youtube.com/channel/UCav6-dPEUiLbnu-rgpy7_bw/featured)** - tips and tricks about Serenity BDD
-* [**Serenity BDD Blog**](https://johnfergusonsmart.com/category/serenity-bdd/) - regular articles about Serenity BDD
-* [**The Serenity Dojo**](https://www.serenity-dojo.com) - Tailored BDD and Test Automation Training and Mentoring
+1. Modular Design
+2. Maven Plugin
+3. Junit
+4. Report Serenity Rest
+5. Serenity BDD
+6. Rest Assured
+
+
+### Add the Feature file
+
+File for running in folder `/test/resources/features/Regres`
+
+
+### To see this project and run this command:
+
+`mvn clean verify`
+
+
+### Record Running Test 
+`https://youtu.be/TZcUNS7SyWo`
+
+
+
+### Serenity Report
+
+
+![all test result](https://user-images.githubusercontent.com/114077446/218270122-a3b58832-20e1-474b-b808-7733682dfe43.png)
+![functional coverage overall](https://user-images.githubusercontent.com/114077446/218270143-ff1557c6-2419-4f07-8b8b-8ec1f4696160.png)
