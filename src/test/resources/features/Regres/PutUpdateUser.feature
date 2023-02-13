@@ -1,4 +1,4 @@
-Feature: Regres API Automation testing POST LOGIN
+Feature: Regres API Automation testing PUT
 
   @Latihan @Positive-Case
   Scenario: Put update user with valid json and valid parameter
